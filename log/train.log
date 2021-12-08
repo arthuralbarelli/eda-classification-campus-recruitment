@@ -1,0 +1,13 @@
+2021-12-08 17:05:00,918 : INFO : utility : Finished logger configuration!
+2021-12-08 17:05:00,919 : INFO : utility : Load config from scripts/config.yaml
+2021-12-08 17:05:00,922 : INFO : utility : config: {'processed_train': 'data/train.csv', 'ensemble_model': 'RandomForestClassifier', 'model_config': {'n_estimators': 200}, 'model_path': 'model/model.pkl'}
+2021-12-08 17:05:00,922 : INFO : utility : ---------------Load the processed data---------------
+2021-12-08 17:05:00,927 : INFO : utility : cols: ['gender', 'workex', 'specialisation', 'status', 'ssc_p_bin', 'hsc_p_bin', 'degree_p_bin', 'etest_p_bin', 'mba_p_bin', 'ssc_b_1', 'ssc_b_2', 'hsc_b_1', 'hsc_b_2', 'hsc_s_1', 'hsc_s_2', 'hsc_s_3', 'degree_t_1', 'degree_t_2', 'degree_t_3']
+2021-12-08 17:05:00,927 : INFO : utility : X: (172, 18)
+2021-12-08 17:05:00,927 : INFO : utility : y: (172,)
+2021-12-08 17:05:00,927 : INFO : utility : ---------------Initiate model---------------
+2021-12-08 17:05:00,927 : INFO : utility : Train model using RandomForestClassifier, {'n_estimators': 200}
+2021-12-08 17:05:01,339 : INFO : utility : Train score: 1.0
+2021-12-08 17:05:03,309 : INFO : utility : CV score: 0.8132773109243697
+2021-12-08 17:05:03,310 : INFO : utility : ---------------Persist model---------------
+2021-12-08 17:05:03,320 : INFO : utility : Persisted model to model/model.pkl

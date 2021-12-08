@@ -14,8 +14,6 @@ def parse_config(config_file):
 
 def set_logger(log_path):
     """
-    Read more about logging: https://www.machinelearningplus.com/python/python-logging-guide/
-
     Args:
         log_path [str]: eg: "../log/train.log"
     """
@@ -31,3 +29,17 @@ def set_logger(log_path):
     logger.addHandler(file_handler)
     logger.info(f"Finished logger configuration!")
     return logger
+
+
+def load_data(processed_data):
+    """
+    Load data from specified file path
+
+    Args:
+        processed_data [str]: file path to processed data
+
+    Returns:
+        [tuple]: feature matrix and target variable
+    """
+    data = pd.read_csv(processed_data)
+    return data.drop("status", axis=1).to_numpy(), data["status"], list(data.columns)

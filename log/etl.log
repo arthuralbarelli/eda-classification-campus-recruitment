@@ -1,0 +1,10 @@
+2021-12-08 14:55:22,428 : INFO : utility : Finished logger configuration!
+2021-12-08 14:55:22,428 : INFO : utility : Load config from scripts/config.yaml
+2021-12-08 14:55:22,429 : INFO : utility : config: {'raw_data_file': 'data/Placement_Data_Full_Class.csv', 'processed_path': 'data', 'test_size': 0.2}
+2021-12-08 14:55:22,430 : INFO : utility : --------------------Start data transformation-------------------
+2021-12-08 14:55:22,451 : INFO : utility : ------------------Train test split & Export------------------
+2021-12-08 14:55:22,451 : INFO : utility : Write data do data
+2021-12-08 14:55:22,476 : INFO : utility : Train: (172, 19)
+2021-12-08 14:55:22,476 : INFO : utility : Test: (43, 19)
+2021-12-08 14:55:22,476 : INFO : utility : 
+

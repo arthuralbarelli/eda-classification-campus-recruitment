@@ -1,6 +1,5 @@
 import pytest
 import sklearn
-
 from train import initiate_model
 
 
@@ -13,8 +12,8 @@ def test_initiate_model():
 
     assert ensemble_model in str(model.__class__), "right class should be picked"
     assert (
-            model.n_estimators == model_config["n_estimators"]
-            ), "right parameters should be loaded"
+        model.n_estimators == model_config["n_estimators"]
+    ), "right parameters should be loaded"
 
     # invalid case
     ensemble_model = "KNeighborsClassifier"

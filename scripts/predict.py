@@ -8,7 +8,6 @@ Usage:
 """
 import logging
 from pathlib import Path
-
 from pickle import load
 
 import click
@@ -17,7 +16,6 @@ import sklearn
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import classification_report
 from sklearn.model_selection import cross_val_score
-
 from utility import load_data, parse_config, set_logger
 
 
@@ -59,7 +57,7 @@ def predict(config_file):
     with open(model_path, "rb") as f:
         trained_model = load(f)
 
-    #Load test set
+    # Load test set
     logger.info(f"Load the test data from {processed_test}")
     X, y, cols = load_data(processed_test)
     logger.info(f"cols: {cols}")

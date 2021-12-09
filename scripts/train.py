@@ -9,7 +9,6 @@ Usage:
 """
 import logging
 from pathlib import Path
-
 from pickle import dump
 
 import click
@@ -17,7 +16,6 @@ import pandas as pd
 import sklearn
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.model_selection import cross_val_score
-
 from utility import load_data, parse_config, set_logger
 
 
@@ -73,9 +71,9 @@ def train(config_file):
     model.fit(X, y)
     logger.info(f"Train score: {model.score(X, y)}")
     logger.info(
-            f"CV score: {cross_val_score(estimator = model, X = X,  y = y, cv = 5).mean()}"
-            )
-    
+        f"CV score: {cross_val_score(estimator = model, X = X,  y = y, cv = 5).mean()}"
+    )
+
     ##################
     # Persist model
     ##################

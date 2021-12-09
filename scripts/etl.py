@@ -15,7 +15,6 @@ import click
 import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import LabelEncoder, OneHotEncoder
-
 from utility import parse_config, set_logger
 
 
@@ -31,7 +30,7 @@ def etl(config_file):
     Returns:
         None
     """
-    
+
     ##################
     # configure logger
     ##################
@@ -64,42 +63,61 @@ def etl(config_file):
     df_campus["etest_p_bin"] = pd.qcut(df_campus["etest_p"], 8)
     df_campus["mba_p_bin"] = pd.qcut(df_campus["mba_p"], 10)
 
-
     # Label Encoding
-    non_numeric_features = ["gender", "ssc_b", "hsc_b", "hsc_s",
-                        "degree_t", "workex", "specialisation",
-                        "ssc_p_bin", "hsc_p_bin", "degree_p_bin",
-                        "etest_p_bin", "mba_p_bin"]
+    non_numeric_features = [
+        "gender",
+        "ssc_b",
+        "hsc_b",
+        "hsc_s",
+        "degree_t",
+        "workex",
+        "specialisation",
+        "ssc_p_bin",
+        "hsc_p_bin",
+        "degree_p_bin",
+        "etest_p_bin",
+        "mba_p_bin",
+    ]
 
     for feature in non_numeric_features:
         df_campus[feature] = LabelEncoder().fit_transform(df_campus[feature])
 
-    
     # One-Hot Encoding
-    categorical_features = ["ssc_b", "hsc_b", "hsc_s",
-                        "degree_t"]
+    categorical_features = ["ssc_b", "hsc_b", "hsc_s", "degree_t"]
 
     encoded_features = []
 
     for feature in categorical_features:
-        encoded_feat = OneHotEncoder() \
-                       .fit_transform(df_campus[feature].values
-                                      .reshape(-1, 1)).toarray()
+        encoded_feat = (
+            OneHotEncoder()
+            .fit_transform(df_campus[feature].values.reshape(-1, 1))
+            .toarray()
+        )
         n = df_campus[feature].nunique()
         cols = ["{}_{}".format(feature, n) for n in range(1, n + 1)]
         encoded_df = pd.DataFrame(encoded_feat, columns=cols)
         encoded_df.index = df_campus.index
         encoded_features.append(encoded_df)
-        
+
     df_campus = pd.concat([df_campus, *encoded_features], axis=1)
 
     # Droping unnecessary columns
-    drop_cols = ["sl_no", "ssc_p", "ssc_b", "hsc_p", "hsc_b",
-                 "hsc_s", "degree_p", "degree_t", "etest_p", "mba_p",
-                 "salary"]
+    drop_cols = [
+        "sl_no",
+        "ssc_p",
+        "ssc_b",
+        "hsc_p",
+        "hsc_b",
+        "hsc_s",
+        "degree_p",
+        "degree_t",
+        "etest_p",
+        "mba_p",
+        "salary",
+    ]
 
     df_campus.drop(columns=drop_cols, inplace=True)
-    
+
     ##################
     # Train test split & Export
     ##################

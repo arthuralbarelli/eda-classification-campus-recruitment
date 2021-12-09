@@ -1,20 +1,20 @@
-2021-12-08 17:45:08,942 : INFO : utility : Finished logger configuration!
-2021-12-08 17:45:08,943 : INFO : utility : Load config from scripts/config.yaml
-2021-12-08 17:45:08,946 : INFO : utility : config: {'model_path': 'model/model.pkl', 'processed_test': 'data/test.csv', 'predicted_file': 'data/predict.csv', 'export_result': True}
-2021-12-08 17:45:08,946 : INFO : utility : ---------------Load the trained model---------------
-2021-12-08 17:45:08,957 : INFO : utility : Load the test data from data/test.csv
-2021-12-08 17:45:08,962 : INFO : utility : cols: ['gender', 'workex', 'specialisation', 'status', 'ssc_p_bin', 'hsc_p_bin', 'degree_p_bin', 'etest_p_bin', 'mba_p_bin', 'ssc_b_1', 'ssc_b_2', 'hsc_b_1', 'hsc_b_2', 'hsc_s_1', 'hsc_s_2', 'hsc_s_3', 'degree_t_1', 'degree_t_2', 'degree_t_3']
-2021-12-08 17:45:08,962 : INFO : utility : X: (43, 18)
-2021-12-08 17:45:08,962 : INFO : utility : y: (43,)
-2021-12-08 17:45:08,962 : INFO : utility : ---------------Predict and evaluate---------------
-2021-12-08 17:45:09,002 : INFO : utility : Classification report: 
+2021-12-09 11:33:32,052 : INFO : utility : Finished logger configuration!
+2021-12-09 11:33:32,052 : INFO : utility : Load config from scripts/config.yaml
+2021-12-09 11:33:32,055 : INFO : utility : config: {'model_path': 'model/model.pkl', 'processed_test': 'data/test.csv', 'predicted_file': 'data/predict.csv', 'export_result': True}
+2021-12-09 11:33:32,055 : INFO : utility : ---------------Load the trained model---------------
+2021-12-09 11:33:32,066 : INFO : utility : Load the test data from data/test.csv
+2021-12-09 11:33:32,071 : INFO : utility : cols: ['gender', 'workex', 'specialisation', 'status', 'ssc_p_bin', 'hsc_p_bin', 'degree_p_bin', 'etest_p_bin', 'mba_p_bin', 'ssc_b_1', 'ssc_b_2', 'hsc_b_1', 'hsc_b_2', 'hsc_s_1', 'hsc_s_2', 'hsc_s_3', 'degree_t_1', 'degree_t_2', 'degree_t_3']
+2021-12-09 11:33:32,071 : INFO : utility : X: (43, 18)
+2021-12-09 11:33:32,071 : INFO : utility : y: (43,)
+2021-12-09 11:33:32,071 : INFO : utility : ---------------Predict and evaluate---------------
+2021-12-09 11:33:32,114 : INFO : utility : Classification report: 
                precision    recall  f1-score   support
 
-           0       0.60      0.64      0.62        14
-           1       0.82      0.79      0.81        29
+           0       0.75      0.60      0.67        10
+           1       0.89      0.94      0.91        33
 
-    accuracy                           0.74        43
-   macro avg       0.71      0.72      0.71        43
-weighted avg       0.75      0.74      0.75        43
+    accuracy                           0.86        43
+   macro avg       0.82      0.77      0.79        43
+weighted avg       0.85      0.86      0.85        43
 
-2021-12-08 17:45:09,005 : INFO : utility : Export prediction to: data/predict.csv
+2021-12-09 11:33:32,117 : INFO : utility : Export prediction to: data/predict.csv
